@@ -1,0 +1,254 @@
+/* unidades relativas */
+
+/* unidad rem 
+1rem = 16px */
+
+/* unidad em 
+
+div{
+    font-size: 32px;
+}
+
+div p {
+    font-size: 2em;
+}
+
+div .otro-parrafo{
+    font-size: 1rem;
+}*/
+
+/* Estilos de pantallas de celulares */
+
+/* resert */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+
+
+ body{
+    background-color: #0d0c0ce6;
+
+    /* Es la propiedad para poner fuentes */
+
+    font-family: 'Merriweather Sans', sans-serif;
+ }
+
+ /* Estilos de header */
+
+ header{
+    color: whitesmoke;
+
+/* Es una propiedad declarado y definido en la especificacion del modelo flexible de caja */
+    display: flex;
+
+/* Es una propiedad que define como el navegador distribuye el espacio de los item flex, a lo largo del eje principal de su contenedor */
+
+    justify-content: space-around;
+
+/* Es una propiedad que nos ayuda alinear los elementos en este caso center nos ayuda a centrar */
+
+    align-items: center;
+ }
+
+ header nav ul{
+
+    list-style: none;
+    display: flex;
+    gap: 1.3rem;
+ }
+
+/* estilos de main */
+
+main div img{
+    /* ancho */
+
+    width: 100%;
+
+    /* altura */
+
+    height: 100%;
+
+    /* el cover hace que la imagen ocupe todo el contenedor y si no fuera a entrar perfectamente hace un zoom para que entre */
+
+    object-fit: cover;
+}
+main{
+    height: 70vh;
+    margin: 1rem 3rem 3rem 3rem;
+    display: grid;
+    /*gap funciona para flex y grid para dar una separación entre los hijos*/
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows:(3, 10%);
+}
+
+/* estilos de los items de main */
+
+.img-dos, .img-cinco{
+
+    display: none;
+}
+
+/* estilos de footer */
+
+footer{
+    margin: 0.6rem;
+    text-align: center;
+    color: whitesmoke;
+
+}
+
+/* mq de table */
+
+@media screen and (min-width:600px) {
+  /* Para darle un subrayado al menu 
+    header nav ul li:hover{
+        border-bottom: 1px solid white;
+     Para que se aleje la seleccion del menu cuando lo seleccionan
+        transform: scale(0.9);
+        text-shadow: 1px 1px orangered;
+        font-weight: lighter;*/
+        header nav ul li:hover{
+            border-bottom: 3px solid orangered;
+            border-top: 3px solid orangered;
+
+        }
+    }
+ 
+    main{
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2, 50%);
+
+    /* creando animacion */
+
+    /* para declarar un nombre */
+    animation-name: ani_nueva;
+    /* la duracion de la animacion */
+    animation-iteration-count: infinite;
+    /* cuanto quiero que dure en transitar esta animacion */
+    animation-duration: 5s;
+    /* cuanto quiero que tarde esta animacion cuando el usuario actualice la pagina web */ 
+    animation-delay: 3s;
+
+    /* linea de tiempo de la animacion */
+
+    @keyframes ani_nueva{
+        0%{
+            transform: scale(1);
+            opacity: 100%;
+        }
+
+        15%{
+            transform: scale(1.2);
+            opacity: 50%;
+        }
+        
+        25%{
+            transform: scale(1);
+        }
+
+        50%{
+            transform: scale(1.2);
+            opacity: 50%;
+        }
+
+        100%{
+            transform: scale(1);
+        }
+
+    }
+
+    
+
+ }
+    
+
+
+.img-uno, .img-tres{
+grid-row: span 1;
+}
+
+.img-cuatro{
+grid-column: span 2;
+transition: 0.5s;
+}
+
+/* CLASE 08 */
+
+.img-cuatro:hover {
+    transform: scale(0.8) /*rotate(360deg)*/;
+    /* opacidad */
+    opacity: 70%;
+    /* todo lo que se aplique en hover se pueda transicionar de mayor a menor en los segundo seleccionados */
+    transition: 3s;
+}
+
+/* mq de desktop */
+
+/* Raisa el @media screen lo que hace es indicarle que en la pantalla aplique los cambios a partir de la medida que le indicas entre los parentesis */
+
+@media screen and (min-width:1024px) {
+    main .img-dos, .img-cinco{
+        /* propiedad para centrar */
+        display: block;
+    }
+
+    
+}
+
+main{
+    /* Define las columnas */
+
+    grid-template-columns: repeat(3, 1fr);
+
+    /* Define las filas */
+
+    grid-template-rows:repeat(3, 1fr) ;
+}
+
+.img-uno, .img-tres{
+grid-row: span 2;
+}
+
+.img-dos, .img-cuatro{
+    /* fila */
+    grid-row: span 1;
+    /* columna */ 
+    grid-column: span 1;
+}
+
+.img-cinco{
+    grid-column: span;
+}
+
+/* Estilos de Sabores de Ladines */
+
+/* Estilos de imagenes main */
+
+.img-sl1, .img-sl3{
+    grid-row: span 4;
+}
+
+.img-sl2, .img-sl4{
+    grid-row: span 1;
+    grid-column: span 1;
+}
+
+.img-sl5, .img-sl6{
+    grid-row: span 1;
+    grid-column: span 1;
+}
+
+/* dimension de Iphone SE */
+@media screen and (min-width: 667px){
+main .img-sl1, .img-sl4{
+    display: block;}
+}
+
+/* Parrafo del recetario */
+
